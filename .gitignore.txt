@@ -1,0 +1,23 @@
+# CMake 빌드 폴더 무시
+CMakeFiles/
+Debug/
+x64/
+main.dir/
+
+# Visual Studio 파일 무시
+*.vcxproj*
+*.sln
+*.filters
+
+# 임시 파일 무시
+*.obj
+*.exe
+*.dll
+*.pdb
+*.idb
+*.log
+
+# 기타 불필요한 파일
+*.tmp
+*.swp
+*.user
