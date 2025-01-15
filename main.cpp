@@ -1,3 +1,5 @@
+// BGL 실행 확인하기 위한 테스트 코드
+
 #include <boost/graph/adjacency_list.hpp>
 #include <iostream>
 

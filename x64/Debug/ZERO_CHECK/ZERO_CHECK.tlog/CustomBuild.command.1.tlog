@@ -1,6 +1,6 @@
 ^C:\USERS\RLARB\THESIS_PROJECT\CMAKEFILES\84E236948A31CB2BCAD99F5F8A693F6B\GENERATE.STAMP.RULE
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/rlarb/thesis_project -BC:/Users/rlarb/thesis_project --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/rlarb/thesis_project/BoostGraphExample.sln
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/rlarb/thesis_project -BC:/Users/rlarb/thesis_project --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/rlarb/thesis_project/ThesisProject.sln
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
