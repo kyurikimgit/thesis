@@ -1,7 +1,5 @@
 # MSc Kyuri Kim
 
-# MSc Thesis - Kyuri Kim
-
 ## Project Overview
 This project evaluates various matching algorithms applied to **Vector Bin Packing with Few Small Items**.  
 It implements **Monte Carlo Matching, MVV Algorithm, and Pfaffian Calculation** using the **Boost Graph Library**.
