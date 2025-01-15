@@ -1,55 +1,56 @@
 # MSc Kyuri Kim
 
+# MSc Thesis - Kyuri Kim
 
-## 📌 Project Overview
-This project evaluates various **matching algorithms** applied to **Vector Bin Packing with Few Small Items**.  
+## Project Overview
+This project evaluates various matching algorithms applied to **Vector Bin Packing with Few Small Items**.  
 It implements **Monte Carlo Matching, MVV Algorithm, and Pfaffian Calculation** using the **Boost Graph Library**.
 
 The core program, `sample_2.cpp`, is designed to solve the bin packing problem using advanced graph-based matching techniques.
 
 ---
 
-## 🔧 Requirements
+## Requirements
 This project has been tested on **Windows (MSYS2) with MinGW-w64 and Boost 1.86.0**.  
-Ensure that you have the following installed:
+The following dependencies must be installed:
 - **GCC** (MinGW-w64)
 - **Boost Graph Library** (`boost_1_86_0`)
 - **C++17 or later**
 
 If Boost is not installed, follow these steps:
 
-### **Install Boost on Windows (MSYS2)**
+### Install Boost on Windows (MSYS2)
 ```bash
 pacman -S mingw-w64-x86_64-boost
 ```
 
-### **Install Boost on macOS**
+### Install Boost on macOS
 ```bash
 brew install boost
 ```
 
 ---
 
-## 🚀 Installation & Execution
+## Installation and Execution
 
-### **1️⃣ Clone the repository**
+### Clone the repository
 ```bash
 git clone https://collaborating.tuhh.de/e-11/theses/msc-kyuri-kim.git
 cd thesis_project/thesiscode
 ```
 
-### **2️⃣ Compile using Makefile**
+### Compile using Makefile
 ```bash
 make
 ```
 This will generate `sample_2.exe`.
 
-### **3️⃣ Run the program**
+### Run the program
 ```bash
 ./sample_2.exe
 ```
 
-### **4️⃣ Clean up compiled files**
+### Clean up compiled files
 ```bash
 make clean
 ```
@@ -57,7 +58,7 @@ This removes the `.o` object files and `sample_2.exe`.
 
 ---
 
-## 📂 Input Format
+## Input Format
 The dataset should be in `.txt` format and must follow this structure:
 ```
 <bin weight capacity> <bin volume capacity>
@@ -65,7 +66,7 @@ The dataset should be in `.txt` format and must follow this structure:
 ...
 ```
 
-**Example (`CL_01_25_01.txt`):**
+Example (`CL_01_25_01.txt`):
 ```
 772 891
 0 30 224 301
@@ -76,8 +77,8 @@ The dataset should be in `.txt` format and must follow this structure:
 
 ---
 
-## 📤 Output Format
-The program prints whether a **perfect matching** is found and measures runtime.
+## Output Format
+The program prints whether a perfect matching is found and measures runtime.
 
 Example output:
 ```
@@ -88,22 +89,22 @@ Runtime: 0.0234 seconds
 
 ---
 
-## 🔬 Performance Evaluation
+## Performance Evaluation
 The runtime of the algorithms is measured using `std::chrono::high_resolution_clock`.  
 To test different datasets, update the `filename` variable in `sample_2.cpp`.
 
 ---
 
-## 🛠 Troubleshooting
+## Troubleshooting
 
-### **Boost Library Not Found**
+### Boost Library Not Found
 - Ensure Boost is installed in: `C:/Users/rlarb/boost_1_86_0`
 - Add the correct include path in `Makefile`:
   ```makefile
   CXXFLAGS = -I"C:/Users/rlarb/boost_1_86_0"
   ```
 
-### **Execution Error**
+### Execution Error
 If the program fails to run, try:
 ```bash
 make clean
@@ -113,25 +114,33 @@ make
 
 ---
 
-## 📜 References
+## References
 - **Paper:** *Tight Vector Bin Packing with Few Small Items via Fast Exact Matching in Multigraphs*
 - **Boost Graph Library Documentation:** [Boost.org](https://www.boost.org)
 ```
 
-✅ **이제 `README.md` 파일을 VSCode에 그대로 복사 & 붙여넣기 하면 돼.**  
-✅ **Ubuntu 설명은 제거했으니까, Windows & macOS에 맞게 구성됨.**  
-
 ---
 
-### 📌 **GitHub에 반영하는 방법**
-```bash
-git add README.md
-git commit -m "Update README.md with installation & execution instructions"
-git push
-```
+### **How to Apply This README**
+1. Open `README.md` in VSCode  
+2. Copy and paste the content above  
+3. Save the file with `Ctrl + S`  
+4. Push the changes to GitHub:
+   ```bash
+   git add README.md
+   git commit -m "Refined README with academic formatting"
+   git push
+   ```
 
-🚀 **이제 교수님께 제출할 수 있는 깔끔한 README가 완성됨!**  
-혹시 추가 수정할 사항이 있으면 말해줘! 😊
+
+
+
+
+----------
+
+
+
+
 
 ## Getting started
 
