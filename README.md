@@ -1,6 +1,137 @@
 # MSc Kyuri Kim
 
 
+## 📌 Project Overview
+This project evaluates various **matching algorithms** applied to **Vector Bin Packing with Few Small Items**.  
+It implements **Monte Carlo Matching, MVV Algorithm, and Pfaffian Calculation** using the **Boost Graph Library**.
+
+The core program, `sample_2.cpp`, is designed to solve the bin packing problem using advanced graph-based matching techniques.
+
+---
+
+## 🔧 Requirements
+This project has been tested on **Windows (MSYS2) with MinGW-w64 and Boost 1.86.0**.  
+Ensure that you have the following installed:
+- **GCC** (MinGW-w64)
+- **Boost Graph Library** (`boost_1_86_0`)
+- **C++17 or later**
+
+If Boost is not installed, follow these steps:
+
+### **Install Boost on Windows (MSYS2)**
+```bash
+pacman -S mingw-w64-x86_64-boost
+```
+
+### **Install Boost on macOS**
+```bash
+brew install boost
+```
+
+---
+
+## 🚀 Installation & Execution
+
+### **1️⃣ Clone the repository**
+```bash
+git clone https://collaborating.tuhh.de/e-11/theses/msc-kyuri-kim.git
+cd thesis_project/thesiscode
+```
+
+### **2️⃣ Compile using Makefile**
+```bash
+make
+```
+This will generate `sample_2.exe`.
+
+### **3️⃣ Run the program**
+```bash
+./sample_2.exe
+```
+
+### **4️⃣ Clean up compiled files**
+```bash
+make clean
+```
+This removes the `.o` object files and `sample_2.exe`.
+
+---
+
+## 📂 Input Format
+The dataset should be in `.txt` format and must follow this structure:
+```
+<bin weight capacity> <bin volume capacity>
+<index> <demand> <weight> <volume>
+...
+```
+
+**Example (`CL_01_25_01.txt`):**
+```
+772 891
+0 30 224 301
+1 72 195 278
+2 4 269 139
+...
+```
+
+---
+
+## 📤 Output Format
+The program prints whether a **perfect matching** is found and measures runtime.
+
+Example output:
+```
+Pfaffian: 123456
+Perfect matching found!
+Runtime: 0.0234 seconds
+```
+
+---
+
+## 🔬 Performance Evaluation
+The runtime of the algorithms is measured using `std::chrono::high_resolution_clock`.  
+To test different datasets, update the `filename` variable in `sample_2.cpp`.
+
+---
+
+## 🛠 Troubleshooting
+
+### **Boost Library Not Found**
+- Ensure Boost is installed in: `C:/Users/rlarb/boost_1_86_0`
+- Add the correct include path in `Makefile`:
+  ```makefile
+  CXXFLAGS = -I"C:/Users/rlarb/boost_1_86_0"
+  ```
+
+### **Execution Error**
+If the program fails to run, try:
+```bash
+make clean
+make
+./sample_2.exe
+```
+
+---
+
+## 📜 References
+- **Paper:** *Tight Vector Bin Packing with Few Small Items via Fast Exact Matching in Multigraphs*
+- **Boost Graph Library Documentation:** [Boost.org](https://www.boost.org)
+```
+
+✅ **이제 `README.md` 파일을 VSCode에 그대로 복사 & 붙여넣기 하면 돼.**  
+✅ **Ubuntu 설명은 제거했으니까, Windows & macOS에 맞게 구성됨.**  
+
+---
+
+### 📌 **GitHub에 반영하는 방법**
+```bash
+git add README.md
+git commit -m "Update README.md with installation & execution instructions"
+git push
+```
+
+🚀 **이제 교수님께 제출할 수 있는 깔끔한 README가 완성됨!**  
+혹시 추가 수정할 사항이 있으면 말해줘! 😊
 
 ## Getting started
 
