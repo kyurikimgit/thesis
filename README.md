@@ -2,29 +2,27 @@
 
 ## Project Overview
 This project evaluates various matching algorithms applied to **Vector Bin Packing with Few Small Items**.  
-It implements **Monte Carlo Matching, MVV Algorithm, and Pfaffian Calculation** using the **Boost Graph Library**.
+It implements **Monte Carlo Matching, MVV Algorithm, and Pfaffian Calculation** using **C# and MathNet.Numerics Linear Algebra**.
 
-The core program, `sample_2.cpp`, is designed to solve the bin packing problem using advanced graph-based matching techniques.
+The core program, `Program.cs`, is designed to solve the bin packing problem using a graph-based matching technique, including:
+- **Pfaffian calculation** to check for perfect matchings.
+- **MVV Algorithm** to estimate the minimum number of bins.
+- **Monte Carlo trials** to improve robustness.
 
 ---
 
 ## Requirements
-This project has been tested on **Windows (MSYS2) with MinGW-w64 and Boost 1.86.0**.  
+This project has been tested on **Windows (Visual Studio) with .NET 8**.  
 The following dependencies must be installed:
-- **GCC** (MinGW-w64)
-- **Boost Graph Library** (`boost_1_86_0`)
-- **C++17 or later**
+- **.NET 8 SDK**
+- **MathNet.Numerics** (for matrix operations)
+- **C# 12 or later**
 
-If Boost is not installed, follow these steps:
+If MathNet.Numerics is not installed, follow these steps:
 
-### Install Boost on Windows (MSYS2)
-```bash
-pacman -S mingw-w64-x86_64-boost
-```
-
-### Install Boost on macOS
-```bash
-brew install boost
+### Install MathNet.Numerics via NuGet
+```powershell
+dotnet add package MathNet.Numerics
 ```
 
 ---
@@ -34,25 +32,23 @@ brew install boost
 ### Clone the repository
 ```bash
 git clone https://collaborating.tuhh.de/e-11/theses/msc-kyuri-kim.git
-cd thesis_project/thesiscode
+cd C#_thesis_project
 ```
 
-### Compile using Makefile
-```bash
-make
-```
-This will generate `sample_2.exe`.
+### Build the project in Visual Studio
+1. Open `C#_thesis_project.sln` in **Visual Studio**.
+2. Ensure the required dependencies are installed.
+3. Click **Build Solution** (`Ctrl + Shift + B`).
 
 ### Run the program
-```bash
-./sample_2.exe
+```powershell
+dotnet run --project C#_thesis_project
 ```
 
 ### Clean up compiled files
-```bash
-make clean
+```powershell
+dotnet clean
 ```
-This removes the `.o` object files and `sample_2.exe`.
 
 ---
 
@@ -64,7 +60,7 @@ The dataset should be in `.txt` format and must follow this structure:
 ...
 ```
 
-Example (`CL_01_25_01.txt`):
+Example (`CL_01_25_10.txt`):
 ```
 772 891
 0 30 224 301
@@ -73,62 +69,65 @@ Example (`CL_01_25_01.txt`):
 ...
 ```
 
+Datasets are stored in:
+```
+C:\Users\rlarb\C#_thesis_project\datasets\2-dimensional-benchmark
+```
+
 ---
 
 ## Output Format
-The program prints whether a perfect matching is found and measures runtime.
+The program prints whether a perfect matching is found and estimates the minimum number of bins.
 
 Example output:
 ```
-Pfaffian: 123456
-Perfect matching found!
-Runtime: 0.0234 seconds
+Added 2 dummy items to make largeItems count even.
+Estimated minimum bins: 25
 ```
 
 ---
 
 ## Performance Evaluation
-The runtime of the algorithms is measured using `std::chrono::high_resolution_clock`.  
-To test different datasets, update the `filename` variable in `sample_2.cpp`.
+The runtime of the algorithms is measured using `System.Diagnostics.Stopwatch`.  
+The program performs multiple Monte Carlo trials to check for a perfect matching and estimates the required bins.
 
 ---
 
 ## Troubleshooting
 
-### Boost Library Not Found
-- Ensure Boost is installed in: `C:/Users/rlarb/boost_1_86_0`
-- Add the correct include path in `Makefile`:
-  ```makefile
-  CXXFLAGS = -I"C:/Users/rlarb/boost_1_86_0"
+### Missing MathNet.Numerics Library
+- Ensure MathNet.Numerics is installed via NuGet:
+  ```powershell
+  dotnet add package MathNet.Numerics
   ```
 
 ### Execution Error
 If the program fails to run, try:
-```bash
-make clean
-make
-./sample_2.exe
+```powershell
+dotnet clean
+dotnet build
+dotnet run
 ```
 
 ---
 
 ## References
 - **Paper:** *Tight Vector Bin Packing with Few Small Items via Fast Exact Matching in Multigraphs*
-- **Boost Graph Library Documentation:** [Boost.org](https://www.boost.org)
-```
+- **MathNet.Numerics Documentation:** [MathNet](https://numerics.mathdotnet.com/)
 
 ---
 
-### **How to Apply This README**
-1. Open `README.md` in VSCode  
+## How to Apply This README
+1. Open `README.md` in **Visual Studio Code**  
 2. Copy and paste the content above  
 3. Save the file with `Ctrl + S`  
 4. Push the changes to GitHub:
-   ```bash
+   ```powershell
    git add README.md
-   git commit -m "Refined README with academic formatting"
+   git commit -m "Updated README for C# implementation with Pfaffian and MVV Algorithm"
    git push
    ```
+```
 
 
 
@@ -140,7 +139,7 @@ make
 
 
 
-## Getting started
+<!-- ## Getting started
 
 To make it easy for you to get started with GitLab, here's a list of recommended next steps.
 
@@ -228,4 +227,4 @@ Show your appreciation to those who have contributed to the project.
 For open source projects, say how it is licensed.
 
 ## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers. -->
