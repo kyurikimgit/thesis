@@ -115,20 +115,6 @@ dotnet run
 - **Paper:** *Tight Vector Bin Packing with Few Small Items via Fast Exact Matching in Multigraphs*
 - **MathNet.Numerics Documentation:** [MathNet](https://numerics.mathdotnet.com/)
 
----
-
-## How to Apply This README
-1. Open `README.md` in **Visual Studio Code**  
-2. Copy and paste the content above  
-3. Save the file with `Ctrl + S`  
-4. Push the changes to GitHub:
-   ```powershell
-   git add README.md
-   git commit -m "Updated README for C# implementation with Pfaffian and MVV Algorithm"
-   git push
-   ```
-```
-
 
 
 
