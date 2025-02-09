@@ -71,7 +71,7 @@ Example (`CL_01_25_10.txt`):
 
 Datasets are stored in:
 ```
-C:\Users\rlarb\C#_thesis_project\datasets\2-dimensional-benchmark
+\datasets\2-dimensional-benchmark
 ```
 
 ---
