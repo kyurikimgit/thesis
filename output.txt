@@ -1,0 +1,2 @@
+usage: ./VSSimKernel <path to config file> 
+exit

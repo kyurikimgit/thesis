@@ -1,0 +1,49 @@
+# Makefile.Libraries
+# ---------------------------------------------------------
+# 사용자 환경:
+#  - Gurobi 위치
+#    libgurobi_c++.a : /home/kyurikim/downloads/gurobi1201/linux64/lib
+#    gurobi_c++.h    : /home/kyurikim/downloads/gurobi1201/linux64/include
+#
+# ---------------------------------------------------------
+
+CC      := g++
+CFLAGS := -std=c++14 -fPIC -I/home/kyurikim/downloads/gurobi1201/linux64/include
+LDFLAGS := -ldl -L/home/kyurikim/downloads/gurobi1201/linux64/lib
+LDLIBS  := -lgurobi_c++ -lgurobi120
+
+# (위의 -lgurobi120 부분은 실제 Gurobi 라이브러리 이름에 맞춰 조정)
+# 예: -lgurobi95, -lgurobi130 등 버전에 따라 다를 수 있음.
+
+# 빌드 대상: FastExactMatching.so, CT01Loader.so
+libraries: FastExactMatching.so CT01Loader.so
+	@echo "Build done."
+
+# --- FastExactMatching.so ---
+# planJobs를 포함한 파일(예: FastExactMatching.cpp) + GurobiBinPacking.o + Machine.o
+FastExactMatching.so: FastExactMatching.o GurobiBinPacking.o Machine.o
+	$(CC) -shared -fPIC $^ -o $@ $(LDFLAGS) $(LDLIBS)
+
+# --- CT01Loader.so ---
+CT01Loader.so: CT01Loader.o
+	$(CC) -shared -fPIC $^ -o $@ $(LDFLAGS)
+
+# --- (예시) ArcFlow.so
+# ArcFlow.so: ArcFlow.o Machine.o
+#     $(CC) -shared -fPIC $^ -o $@ $(LDFLAGS) $(LDLIBS)
+
+# --- 규칙: .o 빌드
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# --- Machine.o 빌드
+Machine.o: Machine.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# --- GurobiBinPacking.o 빌드 (MIP 모델 함수 들어 있는 파일)
+GurobiBinPacking.o: GurobiBinPacking.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# --- 청소
+clean:
+	rm -f *.o *.so

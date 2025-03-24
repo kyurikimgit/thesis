@@ -1,0 +1,42 @@
+# Compiler settings
+CXX := g++
+CXXFLAGS := -O2
+CPPFLAGS := -I/usr/include/python2.7
+LDFLAGS := -ldl
+CFLAGS := -fPIC
+
+# Source files
+SRC_FILES := ConfigReader.cpp Machine.cpp Timer.cpp VSSimKernel.cpp
+
+# Object files
+OBJ_FILES := $(SRC_FILES:.cpp=.o)
+
+# Target
+VSSimKernel: $(OBJ_FILES)
+ifeq ($(shell grep Microsoft /proc/version),)
+    # Linux
+	$(CXX) -O0 -g -std=c++11 -DWITHOUT_NUMPY -DPLOT -DSAVEJOBS $(OBJ_FILES) -o $@ -lpython2.7 $(LDFLAGS)
+else
+    # Windows (assuming WSL)
+	$(CXX) -O2 -DWITHOUT_NUMPY $(OBJ_FILES) -o $@ $(LDFLAGS)
+endif
+
+# Compile rule
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) $(CFLAGS) -c $< -o $@
+
+
+
+
+#libraries: FastExactMatching.so VBPLoader.so testlib.so GWFLoader.so SWFLoader.so C0Loader.so CXLoader.so C6Loader.so TestLoader.so CNS.so LSR_FFD_L2.so LSR_FFD_LInf.so LSR_FF_LInf.so LSR_FFD_L1.so LSR_L1.so LSR_L2.so LSR_LInf.so LS_withoutGreedy.so LS_FF_LInf.so LS_L1.so LS_L2.so LS_LInf.so LS_FFD_L1.so LS_FFD_L2.so LS_FFD_LInf.so LSR.so SPVS.so SE.so KouVS_FF.so KouVS_FFD_LInf.so PaniSin.so Pani_DP.so Pani_L1.so Pani_L2.so Pani_LInf.so Hybrid_DP.so Hybrid_L1.so Hybrid_L2.so Hybrid_LInf.so KouVS_FFD_L1.so KouVS_FFD_Lexi.so KouVS_FFD_Lexi_Reordered.so KouVS_FFD_L2.so KouVS_BF.so KouVS_BFD_LInf.so KouVS_BFD_L1.so KouVS_BFD_Lexi.so KouVS_BFD_Lexi_Reordered.so KouVS_BFD_L2.so
+
+#%.so: %.o Machine.o
+#	$(CC) -shared -fPIC $^ -o $@
+
+#%.o: %.cpp
+#	$(CC) $(CFLAGS) -c $< -o $@
+#Machine.o : Machine.cpp
+#	$(CC) $(CFLAGS) -c $< -o $@
+#clean:
+#	rm -f $(TARGET) $(OBJS) *.so
+

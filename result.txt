@@ -1,0 +1,5 @@
+[DEBUG] planJobs result:
+ - #small=0, #large=1
+ - targetWeight=0
+ - coefficient=0
+ => fail

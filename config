@@ -1,0 +1,13 @@
+loader ./CT01Loader.so
+algorithm ./FastExactMatching.so 
+online false #use online approach  
+step_width 2 #skip tests
+test_type  maxMachineLoad #maxMachineLoad (all), waitingtime (online), lbOverhead (Kous only), analyzeMachines (all), processingTime (online) 
+dimensions 2
+machine_size 1		# machines capacity
+
+vbpClass 10
+jobs 99
+machines 99	# max. number of used machines 
+vbpSize 99
+vbpInstance 10
